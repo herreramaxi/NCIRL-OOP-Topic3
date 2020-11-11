@@ -14,10 +14,10 @@ import java.util.Date;
  */
 public abstract class Booking implements IBooking {
     
-    private final String clientName;
-    private final String bookingReference;
-    private final Date startDate;
-    private final int nights;
+    protected final String clientName;
+    protected final String bookingReference;
+    protected final Date startDate;
+    protected final int nights;
     
     public String getClientName() {
         return clientName;
