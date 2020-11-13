@@ -55,7 +55,7 @@ public abstract class Booking implements IBooking {
     protected abstract int calculateExtraCosts();
 
     protected abstract String getBookingTypeName();
-
+       
     //Template method print
     @Override
     public void print() {
