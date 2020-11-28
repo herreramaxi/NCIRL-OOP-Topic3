@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package accommodationbookingsystem;
+package accommodationbookingsystem.StartingPoint;
 
+import accommodationbookingsystem.BookingFactory;
+import accommodationbookingsystem.Bookings.IBooking;
+import accommodationbookingsystem.UI.JFrameMain;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;

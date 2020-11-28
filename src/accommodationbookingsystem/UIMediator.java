@@ -5,6 +5,8 @@
  */
 package accommodationbookingsystem;
 
+import accommodationbookingsystem.Bookings.IBooking;
+import accommodationbookingsystem.UI.JFrameMain;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,11 +19,11 @@ public class UIMediator {
     private final JFrameMain mainFrame;
     private final ArrayList<IBooking> bookings = new ArrayList<>();
 
-    UIMediator(JFrameMain main) {
+    public UIMediator(JFrameMain main) {
         mainFrame = main;
     }
 
-    void addBooking() {
+    public void addBooking() {
         IBooking booking = createBooking();
         bookings.add(booking);
 
@@ -29,12 +31,11 @@ public class UIMediator {
         mainFrame.resetControlValues();
     }
 
-    void cancel() {
+    public void cancel() {
         mainFrame.resetControlValues();
     }
 
-    void printAllBookings() 
-    {
+    public void printAllBookings() {
         mainFrame.cleanOutputTextArea();
         bookings.forEach((booking) -> {
             booking.print();
@@ -42,17 +43,17 @@ public class UIMediator {
         });
     }
 
-    void calculateCost() {
+    public void calculateCost() {
         IBooking booking = createBooking();
 
         mainFrame.showMessage("Cost: " + booking.calculateCost());
     }
 
-    void cleanBookings() {
+    public void cleanBookings() {
         bookings.clear();
     }
 
-    void selectBooking(String bookingType) {
+    public void selectBooking(String bookingType) {
         if (bookingType == "Hotel room") {
             mainFrame.setEnabledRoomNumber(true);
             mainFrame.setBreakfastIncluded(true);

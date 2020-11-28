@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package accommodationbookingsystem;
+package accommodationbookingsystem.UI;
 
+import accommodationbookingsystem.CustomOutputStream;
+import accommodationbookingsystem.UIMediator;
 import java.io.PrintStream;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author Maximiliano Herrera
  */
 public class JFrameMain extends javax.swing.JFrame {
-    
+
     private final UIMediator mediator;
 
     /**
@@ -25,13 +27,13 @@ public class JFrameMain extends javax.swing.JFrame {
         initComponents();
         PrintStream printStream = new PrintStream(new CustomOutputStream(jTextAreaOutput));
         System.setOut(printStream);
-        
+
         mediator = new UIMediator(this);
         jComboBoxBookingType.addItem("Hotel room");
         jComboBoxBookingType.addItem("Self catering cottage");
-        
+
         mediator.selectBooking("Hotel room");
-        this.resetControlValues();        
+        this.resetControlValues();
     }
 
     /**
@@ -164,22 +166,21 @@ public class JFrameMain extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldRoomNumber))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(28, 28, 28)
-                                            .addComponent(jTextFieldNights, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldRoomNumber))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jTextFieldNights, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jCheckBoxBreakfast)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,7 +287,7 @@ public class JFrameMain extends javax.swing.JFrame {
 
     private void actionPerformedComboBoxBookingType(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionPerformedComboBoxBookingType
         Object item = jComboBoxBookingType.getSelectedItem();
-        
+
         mediator.selectBooking(item.toString());
     }//GEN-LAST:event_actionPerformedComboBoxBookingType
 
@@ -336,7 +337,7 @@ public class JFrameMain extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new JFrameMain().setVisible(true);
             }
         });
@@ -373,47 +374,47 @@ public class JFrameMain extends javax.swing.JFrame {
     public String getClientName() {
         return jTextFieldClientName.getText();
     }
-    
+
     public String getBookingType() {
         return jComboBoxBookingType.getSelectedItem().toString();
     }
-    
+
     public String getBookingReference() {
         return jTextFieldBookingReference.getText();
     }
-    
+
     public Date getStartDate() {
         return dateChooserCombo1.getSelectedDate().getTime();
     }
-    
+
     public int getNights() {
         return Integer.parseInt(jTextFieldNights.getText());
     }
-    
+
     public int getRoomNumber() {
         return Integer.parseInt(jTextFieldRoomNumber.getText());
     }
-    
+
     public boolean getBreakfastIncluded() {
         return jCheckBoxBreakfast.isSelected();
     }
-    
+
     public String getAddress() {
         return jTextFieldAddress.getText();
     }
-    
+
     public Character getKeyCollectingPoint() {
         return jTextFieldKeyCollectingPoint.getText().charAt(0);
     }
-    
+
     public void resetControlValues() {
         jComboBoxBookingType.setSelectedIndex(0);
         jTextFieldClientName.setText("");
         jTextFieldBookingReference.setText("");
-        
+
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        
+
         dateChooserCombo1.setSelectedDate(c);
         jTextFieldNights.setText("");
         jTextFieldRoomNumber.setText("0");
@@ -422,28 +423,28 @@ public class JFrameMain extends javax.swing.JFrame {
         jTextFieldKeyCollectingPoint.setText("");
         jTextAreaOutput.setText("");
     }
-    
-    void setEnabledAddress(boolean enabled) {
+
+    public void setEnabledAddress(boolean enabled) {
         jTextFieldAddress.setEnabled(enabled);
     }
-    
-    void setEnabledRoomNumber(boolean enabled) {
+
+    public void setEnabledRoomNumber(boolean enabled) {
         jTextFieldRoomNumber.setEnabled(enabled);
     }
-    
-    void setBreakfastIncluded(boolean enabled) {
+
+    public void setBreakfastIncluded(boolean enabled) {
         jCheckBoxBreakfast.setEnabled(enabled);
     }
-    
-    void setEnabledKeyCollectionPoint(boolean enabled) {
+
+    public void setEnabledKeyCollectionPoint(boolean enabled) {
         jTextFieldKeyCollectingPoint.setEnabled(enabled);
     }
-    
-    void showMessage(String message) {
+
+    public void showMessage(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
-    
-    void cleanOutputTextArea() {
+
+    public void cleanOutputTextArea() {
         jTextAreaOutput.setText("");
     }
 }

@@ -5,6 +5,9 @@
  */
 package accommodationbookingsystem;
 
+import accommodationbookingsystem.Bookings.BookingSelfCateringCottage;
+import accommodationbookingsystem.Bookings.BookingHotelRoom;
+import accommodationbookingsystem.Bookings.IBooking;
 import java.util.Date;
 
 /**

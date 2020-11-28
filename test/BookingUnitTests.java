@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-import accommodationbookingsystem.Booking;
-import accommodationbookingsystem.BookingHotelRoom;
-import accommodationbookingsystem.BookingSelfCateringCottage;
-import accommodationbookingsystem.IBooking;
+import accommodationbookingsystem.Bookings.Booking;
+import accommodationbookingsystem.Bookings.BookingHotelRoom;
+import accommodationbookingsystem.Bookings.BookingSelfCateringCottage;
+import accommodationbookingsystem.Bookings.IBooking;
 import java.util.Date;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.After;
